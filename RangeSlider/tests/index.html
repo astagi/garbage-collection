@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Range slider</title>
+    <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="../themes/rangeslider.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../ui/rangeslider.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $( "#slider-range" ).rangeslider({
+                min: 0,
+                max: 100,
+                extvalues: [ 12, 23, 30, 30 ],
+                colors: [ "green", "#CCCCCC" , "#C11CC2", "red", "blue"],
+                tips: [ "Market Indicator", "Society Indicator" , "Internal Indicator", "Alert Indicator", "Blue Indicator"],
+                slide: function( event, ui ) {
+                    $( "#market_value" ).html( "Market: " + ui.values[ 0 ] + "%");
+                    $( "#society_value" ).html( "Society: " + ui.values[ 1 ] + "%" );
+                    $( "#internal_value" ).html( "Internal: " + ui.values[ 2 ] + "%" );
+                    $( "#alert_value" ).html( "Alert: " + ui.values[ 3 ] + "%" );
+                    $( "#blue_value" ).html( "Blue: " + ui.values[ 4 ] + "%" );
+                }
+            });
+                
+            $( "#market_value" ).html( "Market: " + $( "#slider-range" ).rangeslider( "range_values", 0 ) + "%" );
+            $( "#society_value" ).html( "Society: " + $( "#slider-range" ).rangeslider( "range_values", 1 ) + "%" );
+            $( "#internal_value" ).html( "Internal: " + $( "#slider-range" ).rangeslider( "range_values", 2 ) + "%" );
+            $( "#alert_value" ).html( "Alert: " + $( "#slider-range" ).rangeslider( "range_values", 3 ) + "%" );
+            $( "#blue_value" ).html( "Blue: " + $( "#slider-range" ).rangeslider( "range_values", 4 ) + "%" );
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="slider-range" style="width:500px; height:34px;" ></div>
+    <div style="margin-top:10px;"/>
+    <div id="market_value" style="color: green;"></div>
+    <div id="society_value" style="color: #CCCCCC;"></div>
+    <div id="internal_value" style="color: #C11CC2;"></div>
+    <div id="alert_value" style="color: red;"></div>
+    <div id="blue_value" style="color: blue;"></div>
+</body>
+</html>
