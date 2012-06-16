@@ -29,6 +29,7 @@ pre_animal_class_init (PreAnimalClass *klass)
 
 /**
  * pre_animal_set_age:
+ * @self: a #PreAnimal
  * @age: the new age of our animal
  *
  * Set the age of our animal.
@@ -42,6 +43,7 @@ pre_animal_set_age (PreAnimal *self, gint age)
 
 /**
  * pre_animal_get_age:
+ * @self: a #PreAnimal
  *
  * Return value: the age of the animal
  */
